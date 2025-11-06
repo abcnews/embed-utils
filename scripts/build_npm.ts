@@ -30,11 +30,4 @@ await build({
     Deno.copyFileSync("README.md", "npm/README.md");
   },
   typeCheck: false,
-  filterDiagnostic(diagnostic) {
-    // Ignore all type checking errors from jsr.io assert module
-    if (diagnostic.file?.fileName.includes("jsr.io/@std/assert")) {
-      return false;
-    }
-    return true;
-  },
 });

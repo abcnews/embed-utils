@@ -1,11 +1,12 @@
 export function emitResize(height: number) {
-  if (!window.parent) {
+  if (!globalThis.parent) {
     return;
   }
+
   const payload = {
     type: "embed-size",
     height,
   };
 
-  window.parent.postMessage(payload, "*");
+  globalThis.parent.postMessage(payload, "*");
 }

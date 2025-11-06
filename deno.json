@@ -12,11 +12,6 @@
     "@std/assert": "jsr:@std/assert@1"
   },
   "compilerOptions": {
-    "lib": ["deno.ns", "dom"]
-  },
-  "lint": {
-    "rules": {
-      "exclude": ["no-window"]
-    }
+    "lib": ["ES2020", "dom", "deno.ns"]
   }
 }
