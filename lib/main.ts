@@ -4,7 +4,7 @@
  * @returns void
  */
 export const emitResize = (height: number) => {
-  if (!globalThis.parent) {
+  if (!window.parent) {
     return;
   }
 
@@ -13,5 +13,5 @@ export const emitResize = (height: number) => {
     height,
   };
 
-  globalThis.parent.postMessage(payload, "*");
+  window.parent.postMessage(payload, "*");
 };
