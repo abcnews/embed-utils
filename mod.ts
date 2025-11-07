@@ -1,4 +1,4 @@
-export function emitResize(height: number) {
+export const emitResize = (height: number) => {
   if (!globalThis.parent) {
     return;
   }
@@ -9,4 +9,4 @@ export function emitResize(height: number) {
   };
 
   globalThis.parent.postMessage(payload, "*");
-}
+};

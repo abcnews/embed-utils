@@ -12,6 +12,6 @@
     "@std/assert": "jsr:@std/assert@1"
   },
   "compilerOptions": {
-    "lib": ["ES2020", "dom", "deno.ns"]
+    "lib": ["es5", "dom", "deno.ns"]
   }
 }

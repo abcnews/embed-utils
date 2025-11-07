@@ -30,4 +30,7 @@ await build({
     Deno.copyFileSync("README.md", "npm/README.md");
   },
   typeCheck: false,
+  compilerOptions: {
+    lib: ["ES6", "DOM"],
+  },
 });
