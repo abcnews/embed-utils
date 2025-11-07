@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.js"),
-      name: "MyLib",
+      name: "embed-utils",
       // the proper extensions will be added
-      fileName: "my-lib",
+      fileName: "embed-utils",
     },
   },
   // rollupOptions: {

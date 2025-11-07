@@ -1,3 +1,12 @@
-FROM denoland/deno:bin-2.4.3 AS deno
-FROM mcr.microsoft.com/devcontainers/typescript-node:20
-COPY --from=deno /deno /usr/local/bin/deno
+FROM oven/bun:debian
+
+# Config Bun
+ENV PATH="~/.bun/bin:${PATH}"
+RUN ln -s /usr/local/bin/bun /usr/local/bin/node
+
+# Update packages
+RUN if [ "debian" == "alpine" ] ; then apk update ; else apt-get update ; fi
+
+# Install Git
+RUN if [ "debian" == "alpine" ] ; then apk add git ; else apt-get install -y git ; fi
+
