@@ -8,12 +8,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "lib/main.js"),
+      entry: resolve(__dirname, "lib/main.ts"),
       name: "embed-utils",
       fileName: "embed-utils",
     },
   },
-  plugins: [],
+  plugins: [
+    dts({ rollupTypes: true }),
+  ],
   // rollupOptions: {
   // make sure to externalize deps that shouldn't be bundled
   // into your library
