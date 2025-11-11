@@ -13,26 +13,22 @@ export default defineConfig({
         // Core functions (vanilla JS)
         index: resolve(__dirname, "lib/core/index.ts"),
         // React wrapper
-        // react: resolve(__dirname, "lib/react/index.tsx"),
+        react: resolve(__dirname, "lib/react/index.tsx"),
         // Svelte wrapper
         // svelte: resolve(__dirname, "lib/svelte/index.ts"),
       },
       name: "embed-utils",
-      fileName: "embed-utils",
+      // fileName: (format, entryName) => `${entryName}.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react/jsx-runtime"],
+      output: {
+        globals: {
+          react: "React",
+          "react/jsx-runtime": "jsxRuntime",
+        },
+      },
     },
   },
-  plugins: [react(), dts({ bundleTypes: true })],
-  // rollupOptions:   {
-  // make sure to externalize deps that shouldn't be bundled
-  // into your library
-  // external: ['vue'],
-  // output: {
-  // Provide global variables to use in the UMD build
-  // for externalized deps
-  // globals: {
-  // vue: 'Vue',
-  //     },
-  //   },
-  // },
-  // },
+  plugins: [dts({ bundleTypes: true })],
 });
