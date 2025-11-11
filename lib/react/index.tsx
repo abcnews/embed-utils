@@ -1,38 +1,19 @@
-// lib/react/index.tsx
 import { useEffect, useRef, type ReactNode } from 'react';
 import { emitResize } from '../core';
 
-interface EmbedWrapperProps {
-  children: ReactNode;
-  onReady?: () => void;
-}
-
-export function EmbedWrapper({ children, onReady }: EmbedWrapperProps) {
+export function EmbedWrapper({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Emit ready signal
-    if (onReady) {
-      onReady();
-    }
+    if (!ref.current) return;
 
-    // Set up ResizeObserver to auto-emit height changes
     const observer = new ResizeObserver((entries) => {
-      const height = entries[0].contentRect.height;
-      emitResize(height);
+      emitResize(entries[0].contentRect.height);
     });
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [onReady]);
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return <div ref={ref}>{children}</div>;
 }
-
-// Re-export core functions for convenience
-export * from '../core';
