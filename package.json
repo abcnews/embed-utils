@@ -34,6 +34,18 @@
     "unplugin-dts": "^1.0.0-beta.6",
     "vite": "npm:rolldown-vite@7.1.14"
   },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "svelte": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "svelte": {
+      "optional": true
+    }
+  },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"
   }
