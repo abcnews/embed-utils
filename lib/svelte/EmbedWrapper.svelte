@@ -1,26 +1,18 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import { emitResize } from '../core/';
-  
+  import type { Snippet } from "svelte";
+  import { emitResize } from "../core/";
+
   let { children }: { children: Snippet } = $props();
-  
-  let container: HTMLDivElement;
-  
+
+  let height = $state(0);
+
   $effect(() => {
-    if (!container) return;
-    
-    const observer = new ResizeObserver(() => {
-      emitResize(container.offsetHeight);
-    });
-    
-    observer.observe(container);
-    
-    return () => {
-      observer.disconnect();
-    };
+    if (height > 0) {
+      emitResize(height);
+    }
   });
 </script>
 
-<div bind:this={container}>
+<div bind:clientHeight={height}>
   {@render children()}
 </div>

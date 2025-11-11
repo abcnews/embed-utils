@@ -1,5 +1,5 @@
-import { useEffect, useRef, type ReactNode } from 'react';
-import { emitResize } from '../core';
+import { useEffect, useRef, type ReactNode } from "react";
+import { emitResize } from "../core";
 
 export function EmbedWrapper({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
