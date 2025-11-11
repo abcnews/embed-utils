@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import dts from "unplugin-dts/vite";
 import react from "@vitejs/plugin-react";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -15,7 +16,7 @@ export default defineConfig({
         // React wrapper
         react: resolve(__dirname, "lib/react/index.tsx"),
         // Svelte wrapper
-        // svelte: resolve(__dirname, "lib/svelte/index.ts"),
+        svelte: resolve(__dirname, "lib/svelte/index.ts"),
       },
       name: "embed-utils",
       // fileName: (format, entryName) => `${entryName}.${format}.js`,
@@ -30,5 +31,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [dts({ bundleTypes: true })],
+  plugins: [react(), svelte(), dts({ bundleTypes: true })],
 });
