@@ -11,15 +11,11 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        // Core functions (vanilla JS)
         index: resolve(__dirname, "lib/core/index.ts"),
-        // React wrapper
         react: resolve(__dirname, "lib/react/index.tsx"),
-        // Svelte wrapper
         svelte: resolve(__dirname, "lib/svelte/index.ts"),
       },
       name: "embed-utils",
-      // fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react/jsx-runtime"],
