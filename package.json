@@ -1,28 +1,25 @@
 {
   "name": "embed-utils",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/embed-utils.umd.cjs",
-  "module": "./dist/embed-utils.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./react": {
+      "types": "./dist/react.d.ts",
       "import": "./dist/react.js",
-      "require": "./dist/react.cjs",
-      "types": "./dist/react.d.ts"
+      "require": "./dist/react.cjs"
     },
     "./svelte": {
+      "types": "./dist/svelte.d.ts",
       "import": "./dist/svelte.js",
-      "require": "./dist/svelte.cjs",
-      "types": "./dist/svelte.d.ts"
+      "require": "./dist/svelte.cjs"
     }
   },
   "scripts": {
