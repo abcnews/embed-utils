@@ -17,7 +17,7 @@
   {@render children()}
 </div>
 
-<style lang="scss">
+<style>
   .root {
     display: flex;
     flex-direction: column;

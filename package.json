@@ -1,5 +1,5 @@
 {
-	"name": "embed-utils",
+	"name": "@phocks/embed-utils",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",

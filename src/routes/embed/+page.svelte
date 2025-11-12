@@ -13,7 +13,7 @@
   {/each}
 </EmbedWrapper>
 
-<style lang="scss">
+<style>
   :global {
     body {
       margin: 0;
