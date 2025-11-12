@@ -13,6 +13,13 @@
   });
 </script>
 
-<div bind:clientHeight={height}>
+<div class="root" bind:clientHeight={height}>
   {@render children()}
 </div>
+
+<style lang="scss">
+  .root {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
