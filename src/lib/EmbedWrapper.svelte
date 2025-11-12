@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { emitResize } from "../emitSize.js";
+  import { emitResize } from "./emitSize.ts";
 
   let { children }: { children: Snippet } = $props();
 

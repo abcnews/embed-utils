@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { EmbedWrapper } from "$lib/index.ts";
+  import EmbedWrapper from "$lib/EmbedWrapper.svelte";
 
   let repetitions = $state(5);
   let content = $derived.by(() => {
